@@ -44,6 +44,6 @@
 	<key>NSCameraUsageDescription</key>
 	<string>Vamos tirar a melhor foto de todas?</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>É isso mesmo</string>
+	<string>Qual a sua melhor imagem?</string>
 </dict>
 </plist>

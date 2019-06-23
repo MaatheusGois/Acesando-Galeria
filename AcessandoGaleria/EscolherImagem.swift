@@ -21,7 +21,6 @@ class EscolherImagem: NSObject, UIImagePickerControllerDelegate, UINavigationCon
     var retornoSelecionador : ((UIImage) -> ())?;
     
     
-    
     //Função principal
     func selecionadorImagem(_ viewController: UIViewController, _ retorno: @escaping ((UIImage) -> ())) {
         
@@ -61,41 +60,56 @@ class EscolherImagem: NSObject, UIImagePickerControllerDelegate, UINavigationCon
         viewController.present(alerta, animated: true, completion: nil)
     }
     
+    
+    //Abre a Camera
     func abrirCamera(){
+        
+        //Desfaz o alerta gerado
         alerta.dismiss(animated: true, completion: nil)
+        
+        //Aqui verificamos se temos a permissao para acessar a camera
         if(UIImagePickerController .isSourceTypeAvailable(.camera)){
+            
+            //Define o tipo como Câmera
             selecionador.sourceType = .camera
+            //Vai para a tela da Câmera
             self.viewController?.present(selecionador, animated: true, completion: nil)
+            
         } else {
             
-            let alertaPerigo = UIAlertController(title: "Alerta", message: "Você não tem câmera", preferredStyle: .actionSheet)
+            //Gera alerta
+            let alerta = UIAlertController(title: "Alerta", message: "Você não tem câmera", preferredStyle: .actionSheet)
             //Cria uma outra acao
             let cancelar = UIAlertAction(title: "Cancelar", style: .cancel){
                 UIAlertAction in
             }
-            
-            alertaPerigo.addAction(cancelar)
-            self.viewController?.present(alertaPerigo, animated: true, completion: nil)
+            //Mostra alerta
+            alerta.addAction(cancelar)
+            self.viewController?.present(alerta, animated: true, completion: nil)
         }
     }
     
-    //Abre a galeria
+    
+    //Abre a Galeria
     func abrirGaleria(){
         
         //Desfaz o alerta gerado
         alerta.dismiss(animated: true, completion: nil)
         
-        //Por default o tipo de abertura do piker em cena é a Galeria
+        //Por default o tipo de abertura do selecionador em cena é a Galeria
+        selecionador.sourceType = .photoLibrary
         
         //Vai para a tela da Galeria
         self.viewController?.present(selecionador, animated: true, completion: nil)
     }
+    
     
     //Metodo chamado quando a pessoa cancela a escolha
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         //Desfaz a tela da Galeria que foi gerada
         picker.dismiss(animated: true, completion: nil)
     }
+    
     
     //Metodo chamado quando a pessoa escolhe uma imagem
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
