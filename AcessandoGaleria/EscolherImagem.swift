@@ -23,7 +23,7 @@ class EscolherImagem: NSObject, UIImagePickerControllerDelegate, UINavigationCon
     
     
     //Função principal
-    func pickImagem(_ viewController: UIViewController, _ retorno: @escaping ((UIImage) -> ())) {
+    func selecionadorImagem(_ viewController: UIViewController, _ retorno: @escaping ((UIImage) -> ())) {
         
         //Declara o callback dessa funcao como sendo a variavel externa pickImageCallback, isso serve para o retorno dessa funcao estar em outro metodo, no caso, apos a escolha da imagem
         retornoSelecionador = retorno;
@@ -84,7 +84,7 @@ class EscolherImagem: NSObject, UIImagePickerControllerDelegate, UINavigationCon
             fatalError("Esperava-se uma imagem, mas foi dado o seguinte: \(info)")
         }
         
-        //Retorna o callback da função pikeImagem
+        //Retorna o callback da função selecionadorImagem
         retornoSelecionador?(image)
     }
 }

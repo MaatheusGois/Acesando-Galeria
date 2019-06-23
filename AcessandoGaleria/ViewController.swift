@@ -11,11 +11,9 @@ import UIKit
 class ViewController: UIViewController {
     @IBOutlet weak var imagem: UIImageView!
     @IBAction func botaoEscolher(_ sender: Any) {
-//        PickerImagem().pickImagem(self){ image in
-//            self.imagem.image = image
-//        }
-        EscolherImagem().pickImagem(self){ image in
-            self.imagem.image = image
+
+        EscolherImagem().selecionadorImagem(self){ imagem in
+            self.imagem.image = imagem
         }
         
     }
