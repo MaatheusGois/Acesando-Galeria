@@ -14,7 +14,7 @@ class ViewController: UIViewController {
 //        PickerImagem().pickImagem(self){ image in
 //            self.imagem.image = image
 //        }
-        ImagePickerManager().pickImagem(self){ image in
+        EscolherImagem().pickImagem(self){ image in
             self.imagem.image = image
         }
         

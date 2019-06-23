@@ -8,25 +8,25 @@
 
 import UIKit
 
-class ImagePickerManager: NSObject, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class EscolherImagem: NSObject, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     
     //Instancia o Controle de Seletor de Imagens
-    var picker = UIImagePickerController();
+    var selecionador = UIImagePickerController();
     //Cria um alerta
     var alerta = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
     //Cria uma variável do tipo UIViewController
     var viewController: UIViewController?
     //Cria um callback @escaping
-    var pickImageCallback : ((UIImage) -> ())?;
+    var retornoSelecionador : ((UIImage) -> ())?;
     
     
     
     //Função principal
-    func pickImagem(_ viewController: UIViewController, _ callback: @escaping ((UIImage) -> ())) {
+    func pickImagem(_ viewController: UIViewController, _ retorno: @escaping ((UIImage) -> ())) {
         
         //Declara o callback dessa funcao como sendo a variavel externa pickImageCallback, isso serve para o retorno dessa funcao estar em outro metodo, no caso, apos a escolha da imagem
-        pickImageCallback = callback;
+        retornoSelecionador = retorno;
         
         //Declara o viewController como o passado como parametro, isso serve para as transicoes de tela.
         self.viewController = viewController;
@@ -43,7 +43,7 @@ class ImagePickerManager: NSObject, UIImagePickerControllerDelegate, UINavigatio
         }
         
         //Declara que o novo delegate do piker são os métodos abaixo
-        picker.delegate = self
+        selecionador.delegate = self
         
         
         // Adiciona acoes ao alerta
@@ -64,7 +64,7 @@ class ImagePickerManager: NSObject, UIImagePickerControllerDelegate, UINavigatio
         //Por default o tipo de abertura do piker em cena é a Galeria
         
         //Vai para a tela da Galeria
-        self.viewController!.present(picker, animated: true, completion: nil)
+        self.viewController!.present(selecionador, animated: true, completion: nil)
     }
     
     //Metodo chamado quando a pessoa cancela a escolha
@@ -85,6 +85,6 @@ class ImagePickerManager: NSObject, UIImagePickerControllerDelegate, UINavigatio
         }
         
         //Retorna o callback da função pikeImagem
-        pickImageCallback?(image)
+        retornoSelecionador?(image)
     }
 }
