@@ -14,7 +14,7 @@ class EscolherImagem: NSObject, UIImagePickerControllerDelegate, UINavigationCon
     //Instancia o Controle de Seletor de Imagens
     var selecionador = UIImagePickerController();
     //Cria um alerta
-    var alerta = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+    var alerta = UIAlertController(title: "Escolha uma opção", message: nil, preferredStyle: .actionSheet)
     //Cria uma variável do tipo UIViewController
     var viewController: UIViewController?
     //Cria um callback @escaping
@@ -31,6 +31,11 @@ class EscolherImagem: NSObject, UIImagePickerControllerDelegate, UINavigationCon
         //Declara o viewController como o passado como parametro, isso serve para as transicoes de tela.
         self.viewController = viewController;
         
+        //Cria uma acao que chama o metodo "openCamera"
+        let camera = UIAlertAction(title: "Camera", style: .default){
+            UIAlertAction in
+            self.abrirCamera()
+        }
         //Cria uma acao que chama o metodo "abrirGaleria"
         let galeria = UIAlertAction(title: "Galeria", style: .default){
             UIAlertAction in
@@ -47,12 +52,31 @@ class EscolherImagem: NSObject, UIImagePickerControllerDelegate, UINavigationCon
         
         
         // Adiciona acoes ao alerta
+        alerta.addAction(camera)
         alerta.addAction(galeria)
         alerta.addAction(cancelar)
         
         //Exibe o alerta na tela
         alerta.popoverPresentationController?.sourceView = self.viewController!.view
         viewController.present(alerta, animated: true, completion: nil)
+    }
+    
+    func abrirCamera(){
+        alerta.dismiss(animated: true, completion: nil)
+        if(UIImagePickerController .isSourceTypeAvailable(.camera)){
+            selecionador.sourceType = .camera
+            self.viewController?.present(selecionador, animated: true, completion: nil)
+        } else {
+            
+            let alertaPerigo = UIAlertController(title: "Alerta", message: "Você não tem câmera", preferredStyle: .actionSheet)
+            //Cria uma outra acao
+            let cancelar = UIAlertAction(title: "Cancelar", style: .cancel){
+                UIAlertAction in
+            }
+            
+            alertaPerigo.addAction(cancelar)
+            self.viewController?.present(alertaPerigo, animated: true, completion: nil)
+        }
     }
     
     //Abre a galeria
@@ -64,7 +88,7 @@ class EscolherImagem: NSObject, UIImagePickerControllerDelegate, UINavigationCon
         //Por default o tipo de abertura do piker em cena é a Galeria
         
         //Vai para a tela da Galeria
-        self.viewController!.present(selecionador, animated: true, completion: nil)
+        self.viewController?.present(selecionador, animated: true, completion: nil)
     }
     
     //Metodo chamado quando a pessoa cancela a escolha

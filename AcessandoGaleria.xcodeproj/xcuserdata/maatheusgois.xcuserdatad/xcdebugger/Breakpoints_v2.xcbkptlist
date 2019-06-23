@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AcessandoGaleria/EscolherImagem.swift"
-            timestampString = "582953824.337643"
+            timestampString = "582956094.808812"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
             landmarkName = "selecionadorImagem(_:_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -26,12 +26,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AcessandoGaleria/EscolherImagem.swift"
-            timestampString = "582953824.3379591"
+            timestampString = "582956094.808946"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
-            landmarkName = "imagePickerControllerDidCancel(_:)"
+            startingLineNumber = "107"
+            endingLineNumber = "107"
+            landmarkName = "imagePickerController(_:didFinishPickingMediaWithInfo:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
