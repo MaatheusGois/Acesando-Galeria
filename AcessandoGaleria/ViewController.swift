@@ -9,7 +9,17 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    @IBOutlet weak var imagem: UIImageView!
+    @IBAction func botaoEscolher(_ sender: Any) {
+//        PickerImagem().pickImagem(self){ image in
+//            self.imagem.image = image
+//        }
+        ImagePickerManager().pickImagem(self){ image in
+            self.imagem.image = image
+        }
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.

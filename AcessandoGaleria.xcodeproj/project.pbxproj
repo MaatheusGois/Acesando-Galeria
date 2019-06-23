@@ -12,6 +12,7 @@
 		8657EF8322BF1897009748F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8657EF8122BF1897009748F8 /* Main.storyboard */; };
 		8657EF8522BF1898009748F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8657EF8422BF1898009748F8 /* Assets.xcassets */; };
 		8657EF8822BF1898009748F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8657EF8622BF1898009748F8 /* LaunchScreen.storyboard */; };
+		8657EF9022BF197F009748F8 /* EscolherImagem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8657EF8F22BF197F009748F8 /* EscolherImagem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		8657EF8422BF1898009748F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8657EF8722BF1898009748F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8657EF8922BF1898009748F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8657EF8F22BF197F009748F8 /* EscolherImagem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EscolherImagem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,9 +58,10 @@
 			children = (
 				8657EF7D22BF1897009748F8 /* AppDelegate.swift */,
 				8657EF7F22BF1897009748F8 /* ViewController.swift */,
+				8657EF8F22BF197F009748F8 /* EscolherImagem.swift */,
 				8657EF8122BF1897009748F8 /* Main.storyboard */,
-				8657EF8422BF1898009748F8 /* Assets.xcassets */,
 				8657EF8622BF1898009748F8 /* LaunchScreen.storyboard */,
+				8657EF8422BF1898009748F8 /* Assets.xcassets */,
 				8657EF8922BF1898009748F8 /* Info.plist */,
 			);
 			path = AcessandoGaleria;
@@ -137,6 +140,7 @@
 			files = (
 				8657EF8022BF1897009748F8 /* ViewController.swift in Sources */,
 				8657EF7E22BF1897009748F8 /* AppDelegate.swift in Sources */,
+				8657EF9022BF197F009748F8 /* EscolherImagem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
