@@ -10,13 +10,15 @@ import UIKit
 
 class EscolherImagem: NSObject, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    
-    //Instancia o Controle de Seletor de Imagens
+    //Instância o controle do sistema de imagens
     var selecionador = UIImagePickerController();
+    
     //Cria um alerta
     var alerta = UIAlertController(title: "Escolha uma opção", message: nil, preferredStyle: .actionSheet)
-    //Cria uma variável do tipo UIViewController
+    
+    //Cria um UIViewController
     var viewController: UIViewController?
+    
     //Cria um callback @escaping
     var retornoSelecionador : ((UIImage) -> ())?;
     
@@ -61,25 +63,21 @@ class EscolherImagem: NSObject, UIImagePickerControllerDelegate, UINavigationCon
     }
     
     
-    //Abre a Camera
+    //Abre a câmera
     func abrirCamera(){
-        
-        //Desfaz o alerta gerado
+        //Desfaz o alerta de seleção gerado anteriormete
         alerta.dismiss(animated: true, completion: nil)
         
-        //Aqui verificamos se temos a permissao para acessar a camera
+        //Aqui verificamos se temos a permissão para acessar a camera
         if(UIImagePickerController .isSourceTypeAvailable(.camera)){
-            
-            //Define o tipo como Câmera
+            //Define o tipo que queremos selecionar como a câmera
             selecionador.sourceType = .camera
             //Vai para a tela da Câmera
             self.viewController?.present(selecionador, animated: true, completion: nil)
-            
         } else {
-            
-            //Gera alerta
+            //Gera alerta se a pessoa não possue câmera no dispositivo ou caso você rode em um simulador.
             let alerta = UIAlertController(title: "Alerta", message: "Você não tem câmera", preferredStyle: .actionSheet)
-            //Cria uma outra acao
+            //Cria uma outra ação
             let cancelar = UIAlertAction(title: "Cancelar", style: .cancel){
                 UIAlertAction in
             }
